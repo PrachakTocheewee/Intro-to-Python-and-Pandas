@@ -14,4 +14,17 @@ print(penguins.tail())
 print(penguins.shape)
 #info of data frame
 print(penguins.info())
+#check for missing values
+print(penguins.isnull().sum())
+#drop missing values
+penguins = penguins.dropna()
+print(penguins.shape)
 print(penguins.info())
+#describe data frame
+print(penguins.describe())
+penguins["avg_bill_mm"] = (penguins["bill_length_mm"] + penguins["bill_depth_mm"]) / 2
+penguins.head()
+penguins.tail()
+
+#write csv file
+penguins.to_csv("sample_data/penguins_with_avg_bill.csv", index=False)
